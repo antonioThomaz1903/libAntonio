@@ -20,3 +20,7 @@ gcc -shared -o libnome.so nomelib.o
 
 gcc -L. -Wall -Werror -pedantic main.cpp -lnome -o main
 ```
+
+AUTOR: Antonio Thomaz Oliveira Reis
+
+Estudante de Engenharia de Software - UFMS
