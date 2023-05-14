@@ -18,21 +18,26 @@ void enfileirar(Fila *&fila, void *dado){
     }
 }
 
-void desenfileirar(Fila *&fila){
+Fila desenfileirar(Fila *&fila){
     Fila *p = fila;
+    Fila aux;
     fila = fila->prox;
+    aux = *p;
     free(p);
+    return aux;
 }
 
-void removerIndice(Fila *&fila, int pos){
+Fila removerIndice(Fila *&fila, int pos){
     Fila *p = fila;
-    Fila *q;
+    Fila *q, aux;
     for(int i=0; i<pos; i++){
         q = p;
         p = p->prox;
     }
     q->prox = p->prox;
+    aux = *p;
     free(p);
+    return aux;
 }
 
 Fila getIndice(Fila *fila, int pos){
@@ -71,10 +76,26 @@ void empilhar(Pilha *&pilha, void *dado){
     }
 }
 
-void desempilhar(Pilha *&pilha){
+Pilha desempilhar(Pilha *&pilha){
     Pilha *p = pilha;
+    Pilha aux;
     pilha = pilha->prox;
+    aux = *p;
     free(p);
+    return aux;
+}
+
+Pilha removerIndice(Pilha *pilha, int pos){
+    Pilha *p = pilha;
+    Pilha *q, aux;
+    for(int i=0; i<pos; i++){
+        q = p;
+        p = p->prox;
+    }
+    q->prox = p->prox;
+    aux = *p;
+    free(p);
+    return aux;
 }
 
 Pilha getIndice(Pilha *pilha, int pos){
